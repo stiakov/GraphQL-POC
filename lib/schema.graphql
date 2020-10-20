@@ -1,0 +1,8 @@
+type Query {
+  "Returns a hello world"
+  hello: String
+  greeting: String
+}
+
+
+
