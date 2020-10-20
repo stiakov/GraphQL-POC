@@ -1,11 +1,11 @@
 'use strict'
 
-const  express = require('express');
-const { graphqlHTTP } = require('express-graphql');
-const { graphql, buildSchema } = require('graphql');
+const express = require('express')
+const { graphqlHTTP } = require('express-graphql')
+const { buildSchema } = require('graphql')
 
-const app = express();
-const port = process.env.port || 3000;
+const app = express()
+const port = process.env.port || 3000
 
 // Defining schema
 const schema = buildSchema(`
@@ -19,15 +19,15 @@ const schema = buildSchema(`
 
 const resolvers = {
   hello: () => 'Hello world',
-  greeting: () => 'Hey everyone!',
+  greeting: () => 'Hey everyone!'
 }
 
 app.use('/api', graphqlHTTP({
   schema,
   rootValue: resolvers,
   graphiql: true
-}));
+}))
 
 app.listen(port, () => {
-  console.log(`Server is listening at ${port}`);
+  console.log(`Server is listening at ${port}`)
 })
